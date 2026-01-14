@@ -140,6 +140,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(data)
                 });
 
+                // Handle Static Deployment (GitHub Pages) where backend is missing
+                // 405 = Method Not Allowed (GitHub Pages static doesn't allow POST)
+                // 404 = Not Found
+                if (response.status === 405 || response.status === 404) {
+                    throw new Error("Static Mode: Simulation Active");
+                }
+
                 const result = await response.json();
 
                 responseDiv.classList.remove('hidden');
@@ -150,7 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     responseDiv.innerHTML = `<p style="color: #ff5f56">[ERROR]: ${result.message}</p>`;
                 }
             } catch (error) {
-                responseDiv.innerHTML = `<p style="color: #ff5f56">[FATAL]: Network transmission failed.</p>`;
+                // Determine if this is a "Static Mode" simulation or a real error
+                if (error.message.includes("Static Mode") || error.message.includes("Failed to fetch")) {
+                    // Simulate successful transmission for the portfolio demo
+                    setTimeout(() => {
+                        responseDiv.classList.remove('hidden');
+                        responseDiv.innerHTML = `<p style="color: var(--accent-green)">[SUCCESS]: Message encrypted and transmitted (Demo Mode).</p>`;
+                        contactForm.reset();
+                    }, 1000);
+                } else {
+                    responseDiv.innerHTML = `<p style="color: #ff5f56">[FATAL]: Network transmission failed.</p>`;
+                }
             } finally {
                 submitBtn.innerText = originalBtnText;
                 submitBtn.disabled = false;
