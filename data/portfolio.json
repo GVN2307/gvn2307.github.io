@@ -1,0 +1,99 @@
+{
+  "profile": {
+    "name": "Veeranarayana Gorantla",
+    "title": "Cybersecurity Specialist | Penetration Tester | Cloud Enthusiast",
+    "bio": "Motivated Computer Science student with a strong foundation in Cybersecurity, Cloud Computing, and Web Development. Skilled in endpoint security, network defense, and cloud infrastructure (GCP/Oracle). Passionate about securing digital assets and innovating in the cloud security space.",
+    "avatar": "static/images/avatar.jpg",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/veeranarayanagorantla/",
+      "github": "https://github.com/GVN2307",
+      "email": "mailto:gvnnarayana@example.com"
+    }
+  },
+  "skills": {
+    "Cybersecurity": [
+      "Penetration Testing",
+      "Endpoint Security",
+      "Network Security",
+      "Vulnerability Assessment",
+      "Burp Suite"
+    ],
+    "Cloud Computing": [
+      "Google Cloud Vertex AI",
+      "Oracle Cloud Infrastructure",
+      "Microsoft Fabric",
+      "Generative AI"
+    ],
+    "Development": [
+      "Python",
+      "Java",
+      "HTML/CSS",
+      "App Development"
+    ],
+    "Networking": [
+      "Cisco Networking",
+      "Device Configuration",
+      "Network Basics"
+    ]
+  },
+  "projects": [
+    {
+      "id": "proj1",
+      "title": "FedEx Flex-Pay AI",
+      "description": "An AI-driven solution for FedEx to handle late payments and transaction reminders dynamically.",
+      "tech": [
+        "JavaScript",
+        "AI Integration",
+        "Financial Tech"
+      ],
+      "link": "https://github.com/GVN2307/Fedx-Flex-pay-AI"
+    },
+    {
+      "id": "proj2",
+      "title": "Vulnerability Scanner",
+      "description": "Developed a Python-based vulnerability scanner for websites with an HTML interface to identify potential security weaknesses.",
+      "tech": [
+        "Python",
+        "HTML",
+        "Security Tools"
+      ],
+      "link": "https://github.com/GVN2307/vulnerability-scanner"
+    },
+    {
+      "id": "proj3",
+      "title": "Blood Bank System",
+      "description": "A management system addressing remote location emergency issues and facilitating easier access to blood banks.",
+      "tech": [
+        "Web Development",
+        "Database Management",
+        "Healthcare Tech"
+      ],
+      "link": "https://github.com/GVN2307/Blood-Bank-Management-System"
+    },
+    {
+      "id": "proj4",
+      "title": "Hackathon Project",
+      "description": "Collaborative project developed during a hackathon, focusing on rapid prototyping and teamwork.",
+      "tech": [
+        "JavaScript",
+        "Rapid Prototyping",
+        "Team Collaboration"
+      ],
+      "link": "https://github.com/GVN2307/Hackthon-Project"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Aspiring Cybersecurity Professional",
+      "company": "Independent Learning",
+      "period": "Present",
+      "description": "Building personal projects, developing new skills, and exploring advanced cybersecurity concepts. Focusing on continuous learning and hands-on experimentation."
+    },
+    {
+      "role": "Cyber Job Simulation",
+      "company": "Deloitte Australia",
+      "period": "Virtual Internship",
+      "description": "Completed practical task modules in cybersecurity operations, analyzing malware and ensuring compliance with security standards."
+    }
+  ]
+}
