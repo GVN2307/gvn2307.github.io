@@ -84,7 +84,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about">
+        <section id="about" class="reveal">
             <div class="container">
                 <div class="section-header">
                     <h3><span class="accent">01.</span> /identity_verification</h3>
@@ -118,7 +118,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills">
+        <section id="skills" class="reveal">
             <div class="container">
                 <div class="section-header">
                     <h3><span class="accent">02.</span> /capabilities_matrix</h3>
@@ -143,7 +143,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects">
+        <section id="projects" class="reveal">
             <div class="container">
                 <div class="section-header">
                     <h3><span class="accent">03.</span> /operational_logs</h3>
@@ -180,7 +180,7 @@
 
         <!-- Badges Section -->
         {% if data.badges %}
-        <section id="badges" class="badges-section">
+        <section id="badges" class="badges-section reveal">
             <div class="container">
                 <div class="section-header">
                     <h3><span class="accent">04.</span> /verified_badges</h3>
@@ -209,7 +209,7 @@
         {% endif %}
 
         <!-- Contact Section -->
-        <section id="contact">
+        <section id="contact" class="reveal">
             <div class="container small-container">
                 <div class="section-header">
                     <h3><span class="accent">05.</span> /secure_comm_channel</h3>
@@ -256,6 +256,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Project Protocol</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="modal-project-name">Project Name</h4>
+                <p id="modal-description">Detailed project description will be loaded here...</p>
+                <div class="modal-tech-stack" id="modal-tech-stack">
+                    <!-- Tech tags injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

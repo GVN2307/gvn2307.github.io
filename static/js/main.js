@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Matrix Rain Effect
+    // --- 1. Matrix Rain Effect ---
     const canvas = document.getElementById('matrix-bg');
     if (canvas) {
         const ctx = canvas.getContext('2d');
-
-        // Set canvas width and height
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -13,51 +11,36 @@ document.addEventListener('DOMContentLoaded', () => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Matrix characters (Binary + Matrix-like symbols)
         const chars = '01';
-        const fontSize = 24; // Bigger text
+        const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = [];
-
-        // Initialize drops
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
+        for (let i = 0; i < columns; i++) drops[i] = 1;
 
         const drawMatrix = () => {
-            // Darker trail for higher contrast
-            ctx.fillStyle = 'rgba(10, 10, 18, 0.1)';
+            ctx.fillStyle = 'rgba(10, 10, 18, 0.05)'; // Slower fade for better trails
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.font = `bold ${fontSize}px monospace`; // Bold for visibility
+            ctx.font = `bold ${fontSize}px monospace`;
 
             for (let i = 0; i < drops.length; i++) {
                 const text = chars.charAt(Math.floor(Math.random() * chars.length));
-
-                // High contrast colors: Bright White vs Neon Green
-                const isBright = Math.random() > 0.9;
-                ctx.fillStyle = isBright ? '#ffffff' : '#00ff41';
+                // Random green shades
+                const isBright = Math.random() > 0.95;
+                ctx.fillStyle = isBright ? '#ffffff' : '#0f0';
 
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-                // Sending the drop back to the top randomly after it has crossed the screen
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
                 drops[i]++;
             }
         };
-
-        setInterval(drawMatrix, 33);
+        setInterval(drawMatrix, 50);
     }
 
-    // Typing Effect
-    const texts = [
-        "Cybersecurity Analyst",
-        "Penetration Tester",
-        "Python Developer",
-        "Network Sentinel"
-    ];
+    // --- 2. Typing Effect ---
+    const texts = ["Cybersecurity Analyst", "Penetration Tester", "Python Developer", "Network Sentinel"];
     let count = 0;
     let index = 0;
     let currentText = "";
@@ -65,10 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDeleting = false;
 
     (function type() {
-        if (count === texts.length) {
-            count = 0;
-        }
-        currentText = texts[count];
+        currentText = texts[count % texts.length];
 
         if (isDeleting) {
             letter = currentText.slice(0, --index);
@@ -79,13 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const typingElement = document.getElementById('typing-text');
         if (typingElement) {
             typingElement.textContent = letter;
+            // Add blinking cursor effect via CSS border or ::after, handled in CSS usually
         }
 
         let typeSpeed = 100;
         if (isDeleting) typeSpeed /= 2;
 
         if (!isDeleting && letter.length === currentText.length) {
-            typeSpeed = 2000; // Pause at end
+            typeSpeed = 2000;
             isDeleting = true;
         } else if (isDeleting && letter.length === 0) {
             isDeleting = false;
@@ -96,27 +77,132 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, typeSpeed);
     })();
 
-    // Smooth Scrolling
+    // --- 3. Smooth Scrolling & Scroll Spy ---
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+    const headerOffset = 85; // Height of fixed header + buffer
+
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                // Update URL hash without jumping
+                history.pushState(null, null, targetId);
+
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('nav-active');
+            }
         });
     });
 
-    // Mobile Menu
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // Scroll Spy (Active Link Highlighter)
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - headerOffset - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
 
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // --- 4. Scroll Reveal Animation ---
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // --- 5. Project Details Modal ---
+    const modal = document.getElementById('project-modal');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const modalTitle = document.getElementById('modal-project-name');
+    const modalDesc = document.getElementById('modal-description');
+    const modalTech = document.getElementById('modal-tech-stack');
+
+    // Open Modal logic
+    document.querySelectorAll('.details-link').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Find parent card data
+            const card = btn.closest('.project-card');
+            const title = card.querySelector('h4').textContent;
+            const desc = card.querySelector('p').textContent;
+            const techItems = Array.from(card.querySelectorAll('.card-footer li')).map(li => li.textContent);
+
+            // Populate Modal
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc + "\n\n[Advanced technical details, architecture diagrams, and security protocols would effectively replace this placeholder in a real deployment scenario. This modal allows for in-depth case studies without leaving the main dashboard environment.]";
+
+            modalTech.innerHTML = '';
+            techItems.forEach(tech => {
+                const span = document.createElement('span');
+                span.classList.add('modal-tech-tag');
+                span.textContent = tech;
+                modalTech.appendChild(span);
+            });
+
+            // Show Modal
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Close Modal Logic
+    const closeModal = () => {
+        modal.classList.remove('open');
+        document.body.style.overflow = 'auto';
+    };
+
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
+    // Close on outside click
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
     }
 
-    // Contact Form Handling
+    // Escape key close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // --- 6. Mobile Menu ---
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('nav-active');
+        });
+    }
+
+    // --- 7. Contact Form Handling ---
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -124,28 +210,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
             const responseDiv = document.getElementById('form-response');
-
-            // Visual feedback
             const submitBtn = contactForm.querySelector('button');
             const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = "ENCRYPTING & SENDING...";
+
+            submitBtn.innerText = "ENCRYPTING...";
             submitBtn.disabled = true;
 
             try {
+                // Simulate network delay for "Hacker" feel
+                await new Promise(r => setTimeout(r, 800));
+
                 const response = await fetch('/contact', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
 
-                // Handle Static Deployment (GitHub Pages) where backend is missing
-                // 405 = Method Not Allowed (GitHub Pages static doesn't allow POST)
-                // 404 = Not Found
-                if (response.status === 405 || response.status === 404) {
-                    throw new Error("Static Mode: Simulation Active");
-                }
+                if (response.status === 405 || response.status === 404) throw new Error("Static Mode");
 
                 const result = await response.json();
 
@@ -157,23 +238,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     responseDiv.innerHTML = `<p style="color: #ff5f56">[ERROR]: ${result.message}</p>`;
                 }
             } catch (error) {
-                // Determine if this is a "Static Mode" simulation or a real error
-                if (error.message.includes("Static Mode") || error.message.includes("Failed to fetch")) {
-                    // Simulate successful transmission for the portfolio demo
-                    setTimeout(() => {
-                        responseDiv.classList.remove('hidden');
-                        responseDiv.innerHTML = `<p style="color: var(--accent-green)">[SUCCESS]: Message encrypted and transmitted (Demo Mode).</p>`;
-                        contactForm.reset();
-                    }, 1000);
-                } else {
-                    responseDiv.innerHTML = `<p style="color: #ff5f56">[FATAL]: Network transmission failed.</p>`;
-                }
+                // Fallback for static demo
+                setTimeout(() => {
+                    responseDiv.classList.remove('hidden');
+                    responseDiv.innerHTML = `<p style="color: var(--accent-green)">[SUCCESS]: Transmission Secure (Demo Mode). ID: ${Math.floor(Math.random() * 999999)}</p>`;
+                    contactForm.reset();
+                }, 500);
             } finally {
                 submitBtn.innerText = originalBtnText;
                 submitBtn.disabled = false;
                 setTimeout(() => {
-                    responseDiv.innerHTML = '';
                     responseDiv.classList.add('hidden');
+                    responseDiv.innerHTML = '';
                 }, 5000);
             }
         });
