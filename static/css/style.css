@@ -1048,7 +1048,7 @@ footer {
     position: relative;
     padding: 20px 0;
     /* Increase height for large badges */
-    height: 600px;
+    height: 350px;
     display: flex;
     align-items: center;
 }
@@ -1081,7 +1081,7 @@ footer {
     /* Larger gap */
     width: max-content;
     /* Slower animation for large items */
-    animation: scroll 60s linear infinite;
+    animation: scroll 30s linear infinite;
     align-items: center;
 }
 
@@ -1092,8 +1092,8 @@ footer {
 .badge-item {
     flex: 0 0 auto;
     /* Large dimensions */
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     background: var(--card-bg);
     border-radius: 20px;
     /* Rounder corners */
@@ -1128,6 +1128,30 @@ footer {
     100% {
         transform: translateX(-50%);
     }
+}
+
+/* Carousel Controls */
+.badge-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.badge-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.badge-dot:hover,
+.badge-dot.active {
+    background: var(--accent-green);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
 }
 
 @media (max-width: 768px) {

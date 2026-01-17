@@ -254,4 +254,75 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 8. Badge Carousel Controls ---
+    const badgeTrack = document.querySelector('.badge-track');
+    const badgeControls = document.getElementById('badge-controls');
+
+    if (badgeTrack && badgeControls) {
+        const badges = document.querySelectorAll('.badge-item');
+        // Original set (half of total because of duplication)
+        const originalCount = badges.length / 2;
+
+        // Generate Dots
+        for (let i = 0; i < originalCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('badge-dot');
+            if (i === 0) dot.classList.add('active'); // First one active
+
+            dot.addEventListener('click', () => {
+                // Remove active class from all
+                document.querySelectorAll('.badge-dot').forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+
+                // Calculate position (Width + Gap)
+                // Assuming 250px width + 100px gap = 350px per item
+                const itemWidth = 350;
+                const scrollPos = i * itemWidth;
+
+                // Stop Animation manually to allow view
+                badgeTrack.style.animationPlayState = 'paused';
+
+                // Translate track manually
+                // We use transform directly or modify the starting keyframe logic
+                // For simplicity in a pure CSS animation setup, we can't easily "jump" to a frame 
+                // without complex JS. 
+                // A simpler "Hack": changing offset, but that fights the keyframe.
+
+                // BETTER APPROACH for "Manual": 
+                // Restart animation from a negative offset? 
+
+                // IMPLEMENTATION: Since it's an infinite purely-CSS scroll, "jumping" to a specific item
+                // is tricky. Instead, we'll just PAUSE and highlight for now, 
+                // OR we accept that "Manual" means "Scroll to view" which is hard with CSS-only marquees.
+
+                // ALTERNATIVE: Just pause on hover (already done) and use dots to 'indicate' count?
+                // Request said "move them manually". 
+
+                // Let's restart the animation with a negative delay to "fast forward" to the spot.
+                // 30s total for N items. Time per item = 30 / N.
+                // -delay = (i * (30/N))
+
+                const totalDuration = 30; // seconds
+                const timePerItem = totalDuration / originalCount;
+                const delay = i * timePerItem;
+
+                // Reset animation
+                badgeTrack.style.animation = 'none';
+                badgeTrack.offsetHeight; /* trigger reflow */
+                badgeTrack.style.animation = `scroll ${totalDuration}s linear infinite`;
+                badgeTrack.style.animationDelay = `-${delay}s`;
+
+                // Pause specifically so they can see it
+                badgeTrack.style.animationPlayState = 'paused';
+
+                // Auto-resume after 3 seconds
+                setTimeout(() => {
+                    badgeTrack.style.animationPlayState = 'running';
+                }, 3000);
+            });
+
+            badgeControls.appendChild(dot);
+        }
+    }
 });
