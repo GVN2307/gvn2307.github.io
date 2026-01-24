@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Contact Section -->
+<section id="contact" class="full-height reveal">
+    <div class="container small-container">
+        <div class="section-header">
+            <h3><span class="accent">05.</span> /secure_comm_channel</h3>
+            <div class="line"></div>
+        </div>
+        <div class="contact-terminal">
+            <div class="terminal-bar">
+                <span class="btn-dot w"></span>
+                <span class="btn-dot y"></span>
+                <span class="btn-dot g"></span>
+                <span class="title">send_message.exe</span>
+            </div>
+            <form id="contact-form" class="terminal-form">
+                <div class="form-group">
+                    <label for="name">root@user:~$ enter_name</label>
+                    <input type="text" id="name" name="name" required placeholder="_">
+                </div>
+                <div class="form-group">
+                    <label for="email">root@user:~$ enter_email</label>
+                    <input type="email" id="email" name="email" required placeholder="_">
+                </div>
+                <div class="form-group">
+                    <label for="message">root@user:~$ enter_message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="_"></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn w-full">TRANSMIT DATA</button>
+            </form>
+            <div id="form-response" class="hidden"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
