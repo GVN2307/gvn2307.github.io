@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Badges Section -->
+{% if data.badges %}
+<section id="badges" class="full-height reveal">
+    <div class="container">
+        <div class="section-header">
+            <h3><span class="accent">04.</span> /verified_badges</h3>
+            <div class="line"></div>
+        </div>
+    </div>
+
+    <div class="badge-slider">
+        <div class="badge-track">
+            <!-- First Set -->
+            {% for badge in data.badges %}
+            <div class="badge-item" title="{{ badge.name }}">
+                <img src="{{ url_for('static', filename='badges/' + badge.image) }}" alt="{{ badge.name }}">
+            </div>
+            {% endfor %}
+
+            <!-- Duplicate Set for Seamless Loop -->
+            {% for badge in data.badges %}
+            <div class="badge-item" title="{{ badge.name }}">
+                <img src="{{ url_for('static', filename='badges/' + badge.image) }}" alt="{{ badge.name }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Manual Navigation Dots -->
+    <div id="badge-controls" class="badge-controls">
+        <button id="prev-btn" class="control-btn"><i class="fas fa-chevron-left"></i></button>
+        <div id="dots-container" class="dots-container"></div>
+        <button id="next-btn" class="control-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
