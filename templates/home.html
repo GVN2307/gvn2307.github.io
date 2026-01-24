@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="hero" class="full-height">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <p class="status-indicator"><span class="blink">●</span> SYSTEM ONLINE</p>
+            <h1>{{ data.profile.name }}</h1>
+            <h2 class="typing-effect" id="typing-text"></h2>
+            <p class="hero-bio">{{ data.profile.bio }}</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('operations') if 'operations' in request.url_rule_class.default_rule_map else '#' }}"
+                    class="btn primary-btn">Initialize Protocol <i class="fas fa-terminal"></i></a>
+                <a href="{{ data.profile.social.github }}" target="_blank" class="btn secondary-btn">GitHub
+                    Access <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <!-- Optional: Place for a cyber-themed illustration or 3D element -->
+        <div class="hero-visual">
+            <div class="radar-circle"></div>
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <pre><code>def init_security():
+    while True:
+        threats = scan_network()
+        if threats:
+            neutralize(threats)
+            log_incident()
+        sleep(0.1)</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

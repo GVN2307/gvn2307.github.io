@@ -73,17 +73,22 @@ def add_security_headers(response):
     return response
 
 @app.route('/')
-def index():
-    data = load_data()
-    
-    # "Digital Signature" data
-    last_scanned = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
-    integrity_check = get_integrity_hash()
-    
-    return render_template('index.html', 
-                           data=data, 
-                           last_scanned=last_scanned, 
-                           integrity=integrity_check)
+def home():
+    try:
+        data = load_data()
+        
+        # Calculate integrity hash (simulated)
+        integrity = hashlib.md5(str(data).encode()).hexdigest()[:12].upper()
+        
+        # Current timestamp
+        last_scanned = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+
+        return render_template('home.html', 
+                             data=data, 
+                             integrity=integrity, 
+                             last_scanned=last_scanned)
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
 
 @app.route('/contact', methods=['POST'])
 @limiter.limit("5 per minute") # Specific rate limit for contact form (DoS Protection)

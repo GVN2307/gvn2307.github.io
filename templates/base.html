@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.profile.name }} | Cybersecurity Portfolio</title>
+    <meta name="description" content="{{ data.profile.bio }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <canvas id="matrix-bg"></canvas>
+
+    <header id="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span class="prompt">>_</span> <span class="glitch" data-text="GVN2307">GVN2307</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}"
+                            class="{% if request.endpoint == 'home' %}active{% endif %}">/home</a></li>
+                    <li><a href="{{ url_for('identity') if 'identity' in request.url_rule_class.default_rule_map else '#' }}"
+                            class="{% if request.endpoint == 'identity' %}active{% endif %}">/identity</a></li>
+                    <li><a href="{{ url_for('capabilities') if 'capabilities' in request.url_rule_class.default_rule_map else '#' }}"
+                            class="{% if request.endpoint == 'capabilities' %}active{% endif %}">/capabilities</a></li>
+                    <li><a href="{{ url_for('operations') if 'operations' in request.url_rule_class.default_rule_map else '#' }}"
+                            class="{% if request.endpoint == 'operations' %}active{% endif %}">/operations</a></li>
+                    <li><a href="{{ url_for('verified') if 'verified' in request.url_rule_class.default_rule_map else '#' }}"
+                            class="{% if request.endpoint == 'verified' %}active{% endif %}">/verified_badges</a></li>
+                    <li><a href="{{ url_for('transmission') if 'transmission' in request.url_rule_class.default_rule_map else '#' }}"
+                            class="{% if request.endpoint == 'transmission' %}active{% endif %}">/comms</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Veeranarayana Gorantla. All Systems Nominal.</p>
+            </div>
+            <div class="footer-right">
+                <div class="digital-signature">
+                    <p><i class="fas fa-fingerprint"></i> INTEGRITY CHECK: <span class="hash">{{ integrity }}</span></p>
+                    <p><i class="fas fa-clock"></i> LAST SCAN: <span class="timestamp">{{ last_scanned }}</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal (Global) -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Project Protocol</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="modal-project-name">Project Name</h4>
+                <p id="modal-description">Detailed project description will be loaded here...</p>
+                <div class="modal-tech-stack" id="modal-tech-stack">
+                    <!-- Tech tags injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

@@ -257,72 +257,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 8. Badge Carousel Controls ---
     const badgeTrack = document.querySelector('.badge-track');
-    const badgeControls = document.getElementById('badge-controls');
+    const dotsContainer = document.getElementById('dots-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
 
-    if (badgeTrack && badgeControls) {
+    if (badgeTrack && dotsContainer) {
         const badges = document.querySelectorAll('.badge-item');
-        // Original set (half of total because of duplication)
         const originalCount = badges.length / 2;
+
+        // Helper to jump to a specific index
+        const jumpTo = (index) => {
+            // Validate bounds
+            if (index < 0) index = originalCount - 1;
+            if (index >= originalCount) index = 0;
+
+            // Update active dot
+            document.querySelectorAll('.badge-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === index);
+            });
+
+            // Calculate delay for CSS animation based on index
+            const totalDuration = 30;
+            const timePerItem = totalDuration / originalCount;
+            const delay = index * timePerItem;
+
+            // Reset Animation to correct position
+            badgeTrack.style.animation = 'none';
+            badgeTrack.offsetHeight; // force reflow
+            badgeTrack.style.animation = `scroll ${totalDuration}s linear infinite`;
+            badgeTrack.style.animationDelay = `-${delay}s`;
+
+            // Pause for viewing
+            badgeTrack.style.animationPlayState = 'paused';
+
+            // Auto resume
+            setTimeout(() => {
+                badgeTrack.style.animationPlayState = 'running';
+            }, 4000);
+
+            return index;
+        }
+
+        let currentIndex = 0;
 
         // Generate Dots
         for (let i = 0; i < originalCount; i++) {
             const dot = document.createElement('div');
             dot.classList.add('badge-dot');
-            if (i === 0) dot.classList.add('active'); // First one active
+            if (i === 0) dot.classList.add('active');
 
             dot.addEventListener('click', () => {
-                // Remove active class from all
-                document.querySelectorAll('.badge-dot').forEach(d => d.classList.remove('active'));
-                dot.classList.add('active');
-
-                // Calculate position (Width + Gap)
-                // Assuming 250px width + 100px gap = 350px per item
-                const itemWidth = 350;
-                const scrollPos = i * itemWidth;
-
-                // Stop Animation manually to allow view
-                badgeTrack.style.animationPlayState = 'paused';
-
-                // Translate track manually
-                // We use transform directly or modify the starting keyframe logic
-                // For simplicity in a pure CSS animation setup, we can't easily "jump" to a frame 
-                // without complex JS. 
-                // A simpler "Hack": changing offset, but that fights the keyframe.
-
-                // BETTER APPROACH for "Manual": 
-                // Restart animation from a negative offset? 
-
-                // IMPLEMENTATION: Since it's an infinite purely-CSS scroll, "jumping" to a specific item
-                // is tricky. Instead, we'll just PAUSE and highlight for now, 
-                // OR we accept that "Manual" means "Scroll to view" which is hard with CSS-only marquees.
-
-                // ALTERNATIVE: Just pause on hover (already done) and use dots to 'indicate' count?
-                // Request said "move them manually". 
-
-                // Let's restart the animation with a negative delay to "fast forward" to the spot.
-                // 30s total for N items. Time per item = 30 / N.
-                // -delay = (i * (30/N))
-
-                const totalDuration = 30; // seconds
-                const timePerItem = totalDuration / originalCount;
-                const delay = i * timePerItem;
-
-                // Reset animation
-                badgeTrack.style.animation = 'none';
-                badgeTrack.offsetHeight; /* trigger reflow */
-                badgeTrack.style.animation = `scroll ${totalDuration}s linear infinite`;
-                badgeTrack.style.animationDelay = `-${delay}s`;
-
-                // Pause specifically so they can see it
-                badgeTrack.style.animationPlayState = 'paused';
-
-                // Auto-resume after 3 seconds
-                setTimeout(() => {
-                    badgeTrack.style.animationPlayState = 'running';
-                }, 3000);
+                currentIndex = jumpTo(i);
             });
 
-            badgeControls.appendChild(dot);
+            dotsContainer.appendChild(dot);
+        }
+
+        // Next/Prev Buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = jumpTo(currentIndex - 1);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = jumpTo(currentIndex + 1);
+            });
         }
     }
 });
