@@ -98,6 +98,14 @@ def identity():
     except Exception as e:
         return f"System Error: {str(e)}", 500
 
+@app.route('/capabilities')
+def capabilities():
+    try:
+        data = load_data()
+        return render_template('skills.html', data=data)
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
+
 @app.route('/contact', methods=['POST'])
 @limiter.limit("5 per minute") # Specific rate limit for contact form (DoS Protection)
 def contact():
