@@ -77,57 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, typeSpeed);
     })();
 
-    // --- 3. Smooth Scrolling & Scroll Spy ---
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const sections = document.querySelectorAll('section');
-    const headerOffset = 85; // Height of fixed header + buffer
-
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-
-                // Update URL hash without jumping
-                history.pushState(null, null, targetId);
-
-                // Close mobile menu if open
-                document.querySelector('.nav-links').classList.remove('nav-active');
-            }
-        });
-    });
-
-    // Scroll Spy (Active Link Highlighter)
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - headerOffset - 150)) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // --- 4. Scroll Reveal Animation ---
+    // --- 3. Scroll Reveal Animation ---
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
