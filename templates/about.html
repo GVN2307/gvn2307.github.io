@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- About Section -->
+<section id="about" class="full-height reveal">
+    <div class="container">
+        <div class="section-header">
+            <h3><span class="accent">01.</span> /identity_verification</h3>
+            <div class="line"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-card terminal-window">
+                <div class="terminal-header">user_profile.json</div>
+                <div class="terminal-body">
+                    <p><span class="key">"Name":</span> <span class="value">"Veeranarayana Gorantla"</span></p>
+                    <p><span class="key">"Role":</span> <span class="value">"{{ data.profile.title }}"</span>
+                    </p>
+                    <p><span class="key">"Location":</span> <span class="value">"Classified"</span></p>
+                    <p><span class="key">"Objective":</span> <span class="value">"Securing digital
+                            infrastructures."</span></p>
+                    <br>
+                    <p class="comment">// Professional Experience loading...</p>
+                    {% for exp in data.experience %}
+                    <div class="exp-item">
+                        <p><span class="key">"{{ exp.company }}":</span> {</p>
+                        <p class="indent">"Role": "{{ exp.role }}",</p>
+                        <p class="indent">"Period": "{{ exp.period }}",</p>
+                        <p class="indent">"Task": "{{ exp.description }}"</p>
+                        <p>}</p>
+                    </div>
+                    {% endfor %}
+
+                    <!-- Education Section -->
+                    {% if data.education %}
+                    <br>
+                    <p class="comment">// Academic Background loading...</p>
+                    {% for edu in data.education %}
+                    <div class="exp-item">
+                        <p><span class="key">"{{ edu.institution }}":</span> {</p>
+                        <p class="indent">"Degree": "{{ edu.degree }}",</p>
+                        <p class="indent">"Period": "{{ edu.period }}",</p>
+                        <p class="indent">"Details": "{{ edu.details }}"</p>
+                        <p>}</p>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
