@@ -1,5 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 0. Custom Cursor Logic ---
+    const dot = document.querySelector('.cursor-dot');
+    const outline = document.querySelector('.cursor-outline');
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let outlineX = 0;
+    let outlineY = 0;
+
+    const lagAmount = 0.15; // Lower = more lag
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // Immediate dot update
+        if (dot) {
+            dot.style.left = mouseX + 'px';
+            dot.style.top = mouseY + 'px';
+        }
+    });
+
+    const animateCursor = () => {
+        // Lagged outline update using linear interpolation
+        outlineX += (mouseX - outlineX) * lagAmount;
+        outlineY += (mouseY - outlineY) * lagAmount;
+
+        if (outline) {
+            outline.style.left = outlineX + 'px';
+            outline.style.top = outlineY + 'px';
+        }
+
+        requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    // Hover effect for interactive elements
+    const hoverElements = 'a, button, .btn, .project-card, .cert-item, input, textarea, .mobile-menu-btn';
+    document.querySelectorAll(hoverElements).forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-hover');
+        });
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        if (dot) dot.style.opacity = '0';
+        if (outline) outline.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+        if (dot) dot.style.opacity = '1';
+        if (outline) outline.style.opacity = '1';
+    });
+
     // --- 1. Matrix Rain Effect ---
     const canvas = document.getElementById('matrix-bg');
     if (canvas) {
