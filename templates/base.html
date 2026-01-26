@@ -34,15 +34,15 @@
                 <ul class="nav-links">
                     <li><a href="{{ url_for('home') }}"
                             class="{% if request.endpoint == 'home' %}active{% endif %}">/home</a></li>
-                    <li><a href="{{ url_for('identity') if 'identity' in request.url_rule_class.default_rule_map else '#' }}"
+                    <li><a href="{{ url_for('identity') }}"
                             class="{% if request.endpoint == 'identity' %}active{% endif %}">/identity</a></li>
-                    <li><a href="{{ url_for('capabilities') if 'capabilities' in request.url_rule_class.default_rule_map else '#' }}"
+                    <li><a href="{{ url_for('capabilities') }}"
                             class="{% if request.endpoint == 'capabilities' %}active{% endif %}">/capabilities</a></li>
-                    <li><a href="{{ url_for('operations') if 'operations' in request.url_rule_class.default_rule_map else '#' }}"
+                    <li><a href="{{ url_for('operations') }}"
                             class="{% if request.endpoint == 'operations' %}active{% endif %}">/operations</a></li>
-                    <li><a href="{{ url_for('verified') if 'verified' in request.url_rule_class.default_rule_map else '#' }}"
+                    <li><a href="{{ url_for('verified') }}"
                             class="{% if request.endpoint == 'verified' %}active{% endif %}">/verified_badges</a></li>
-                    <li><a href="{{ url_for('transmission') if 'transmission' in request.url_rule_class.default_rule_map else '#' }}"
+                    <li><a href="{{ url_for('transmission') }}"
                             class="{% if request.endpoint == 'transmission' %}active{% endif %}">/comms</a></li>
                 </ul>
                 <div class="mobile-menu-btn">

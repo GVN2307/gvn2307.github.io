@@ -83,50 +83,10 @@ def home():
         # Current timestamp
         last_scanned = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
 
-        return render_template('home.html', 
+        return render_template('index.html', 
                              data=data, 
                              integrity=integrity, 
                              last_scanned=last_scanned)
-    except Exception as e:
-        return f"System Error: {str(e)}", 500
-
-@app.route('/identity')
-def identity():
-    try:
-        data = load_data()
-        return render_template('about.html', data=data)
-    except Exception as e:
-        return f"System Error: {str(e)}", 500
-
-@app.route('/capabilities')
-def capabilities():
-    try:
-        data = load_data()
-        return render_template('skills.html', data=data)
-    except Exception as e:
-        return f"System Error: {str(e)}", 500
-
-@app.route('/operations')
-def operations():
-    try:
-        data = load_data()
-        return render_template('projects.html', data=data)
-    except Exception as e:
-        return f"System Error: {str(e)}", 500
-
-@app.route('/verified_badges')
-def verified():
-    try:
-        data = load_data()
-        return render_template('badges.html', data=data)
-    except Exception as e:
-        return f"System Error: {str(e)}", 500
-
-@app.route('/transmission')
-def transmission():
-    try:
-        data = load_data()
-        return render_template('contact.html', data=data)
     except Exception as e:
         return f"System Error: {str(e)}", 500
 
