@@ -70,14 +70,14 @@
     },
     {
       "id": "proj3",
-      "title": "Truth Teller",
+      "title": "News Analyzer",
       "description": "An ongoing project focused on analyzing data veracity. Currently in active development to explore new algorithms.",
       "tech": [
         "Python",
         "Data Analysis",
         "Algorithm Design"
       ],
-      "link": "https://github.com/GVN2307"
+      "link": "https://github.com/GVN2307/News-Analyzer"
     },
     {
       "id": "proj4",
@@ -89,6 +89,29 @@
         "Security Tools"
       ],
       "link": "https://github.com/GVN2307/vulnerability-scanner"
+    },
+    {
+      "id": "proj5",
+      "title": "FoodFlow Protocol",
+      "description": "A full-stack platform to create a demand-driven agricultural ecosystem.",
+      "tech": [
+        "Python (FastAPI)",
+        "TypeScript",
+        "Tailwind CSS",
+        "PostgreSQL"
+      ],
+      "link": "https://github.com/GVN2307/FoodFlow"
+    },
+    {
+      "id": "proj6",
+      "title": "FedEx Flex-Pay AI",
+      "description": "AI-driven payment flexibility solution for FedEx transactions to manage late payments effectively.",
+      "tech": [
+        "Python",
+        "AI",
+        "Machine Learning"
+      ],
+      "link": "https://github.com/GVN2307/Fedx-Flex-pay-AI"
     }
   ],
   "experience": [
