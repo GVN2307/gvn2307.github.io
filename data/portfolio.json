@@ -114,18 +114,90 @@
       "link": "https://github.com/GVN2307/Fedx-Flex-pay-AI"
     }
   ],
-  "experience": [
+  "certifications": [
     {
-      "role": "Cyber Job Simulation",
-      "company": "Deloitte Australia",
-      "period": "Virtual",
-      "description": "Completed practical task modules in cybersecurity operations, analyzing malware and ensuring compliance with security standards."
+      "name": "Introduction to Cybersecurity",
+      "issuer": "Cisco",
+      "date": "2025",
+      "file": "Cisco Introduction to Cybersecurity.pdf",
+      "type": "pdf"
     },
     {
-      "role": "Aspiring Professional",
+      "name": "Endpoint Security",
+      "issuer": "Cisco",
+      "date": "2026",
+      "file": "EndpointSecurityUpdate20260106-33-oguv8b.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Networking Basics",
+      "issuer": "Cisco",
+      "date": "2025",
+      "file": "NetworkingBasicsUpdate20251213-31-txtw2r.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Networking Devices & Configuration",
+      "issuer": "Cisco",
+      "date": "2025",
+      "file": "NetworkingDevicesandBasicConfigUpdate20251226-32-dtwour.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Cybersecurity Job Simulation",
+      "issuer": "Deloitte",
+      "date": "2025",
+      "file": "Delloite Simulation.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Advent of Cyber 2025",
+      "issuer": "TryHackMe",
+      "date": "2025",
+      "file": "Advent of Cyber 2025.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Oracle Cloud GenAI Professional",
+      "issuer": "Oracle",
+      "date": "2025",
+      "file": "ScoreReport Oracle.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Cyber Security Associate",
+      "issuer": "SkillUp",
+      "date": "2025",
+      "file": "Cyber security Associate Certificate.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Python Programming",
+      "issuer": "LetsUpgrade",
+      "date": "2025",
+      "file": "LUEPYTJAN126282.pdf",
+      "type": "pdf"
+    },
+    {
+      "name": "Enterprise Design Thinking",
+      "issuer": "IBM",
+      "date": "2026",
+      "file": "IBMDesign20260108-30-c973op.pdf",
+      "type": "pdf"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Cybersecurity Job Simulation",
+      "company": "Deloitte Australia",
+      "period": "Virtual Internship",
+      "description": "Completed practical task modules in cybersecurity operations, analyzing malware, and ensuring compliance with security standards. Gained hands-on experience in SOC operations."
+    },
+    {
+      "role": "Aspiring Cybersecurity Professional",
       "company": "Self-Driven",
       "period": "Present",
-      "description": "Building projects in Web Security and Full Stack. Pursuing certifications in Oracle Cloud and Vertex AI."
+      "description": "Actively building skills in Network Defense, Endpoint Security, and Cloud AI (Oracle/Google). Certified in Cisco Networking and Cybersecurity fundamentals."
     }
   ],
   "badges": []

@@ -38,6 +38,7 @@
                     <li><a href="#about">/identity</a></li>
                     <li><a href="#skills">/capabilities</a></li>
                     <li><a href="#projects">/operations</a></li>
+                    <li><a href="#certifications">/certifications</a></li>
                     <li><a href="#badges">/verified_badges</a></li>
                     <li><a href="#contact">/comms</a></li>
                 </ul>
@@ -193,6 +194,35 @@
             </div>
         </section>
 
+        <!-- Certifications Section -->
+        {% if data.certifications %}
+        <section id="certifications" class="reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h3><span class="accent">04.</span> /certifications</h3>
+                    <div class="line"></div>
+                </div>
+                <div class="cert-grid">
+                    {% for cert in data.certifications %}
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>{{ cert.name }}</h4>
+                            <p class="issuer">{{ cert.issuer }} | {{ cert.date }}</p>
+                        </div>
+                        <a href="{{ url_for('static', filename='certificates/' + cert.file) }}" target="_blank"
+                            class="cert-link">
+                            <i class="fas fa-download"></i> View Document
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
 
 
         <!-- Badges Section -->
@@ -200,7 +230,7 @@
         <section id="badges" class="badges-section reveal">
             <div class="container">
                 <div class="section-header">
-                    <h3><span class="accent">04.</span> /verified_badges</h3>
+                    <h3><span class="accent">05.</span> /verified_badges</h3>
                     <div class="line"></div>
                 </div>
             </div>
@@ -236,7 +266,7 @@
         <section id="contact" class="reveal">
             <div class="container small-container">
                 <div class="section-header">
-                    <h3><span class="accent">05.</span> /secure_comm_channel</h3>
+                    <h3><span class="accent">06.</span> /secure_comm_channel</h3>
                     <div class="line"></div>
                 </div>
                 <div class="contact-terminal">
