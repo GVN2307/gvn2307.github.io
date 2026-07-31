@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veeranarayana Gorantla | Cybersecurity Portfolio</title>
+    <meta name="description" content="Highly driven Computer Science student with a strong background (8.0 CGPA) in software development and cybersecurity. Competent in Full Stack fundamentals and Web Application Security. Lifelong learner actively pursuing industry certifications and eager to contribute to fast-paced teams in development or security roles.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="scanline"></div>
+    <canvas id="matrix-bg"></canvas>
+
+    <header id="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span class="prompt">>_</span> <span class="glitch" data-text="GVN2307">GVN2307</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html"
+                            class="">/home</a></li>
+                    <li><a href="/about.html"
+                            class="">/identity</a></li>
+                    <li><a href="/skills.html"
+                            class="">/capabilities</a></li>
+                    <li><a href="/projects.html"
+                            class="">/operations</a></li>
+                    <li><a href="/badges.html"
+                            class="active">/verified_badges</a></li>
+                    <li><a href="/contact.html"
+                            class="">/comms</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+<!-- Badges Section -->
+
+<section id="badges" class="reveal" style="padding-top: 100px; padding-bottom: 80px;">
+    <div class="container">
+        <div class="section-header">
+            <h3><span class="accent">04.</span> /verified_badges</h3>
+            <div class="line"></div>
+        </div>
+
+        
+        <div class="badge-category-section" style="margin-bottom: 2rem; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 20px 25px; background: rgba(2, 12, 27, 0.4);">
+            <h4 class="subsection-title collapsible-header" onclick="toggleCategory('internships_hackathons')" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: none; margin-bottom: 0; padding-bottom: 0; transition: var(--transition);">
+                <span><i class="fas fa-trophy"></i> Internships &amp; Hackathons</span>
+                <span class="toggle-icon" id="icon-internships_hackathons" style="color: var(--accent-green); transition: transform 0.3s ease;"><i class="fas fa-chevron-down"></i></span>
+            </h4>
+            
+            <div class="badge-display-grid collapsible-content" id="content-internships_hackathons">
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/Internship.jpg" alt="Samriddhi Anveshana Summer Internship">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Samriddhi Anveshana Summer Internship</h5>
+                        
+                        <a href="/static/certificates/I4fit%20Hackathon.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/cyber-security-associate-certificate.jpg" alt="Elevate Labs Cybersecurity Internship">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Elevate Labs Cybersecurity Internship</h5>
+                        
+                        <a href="/static/certificates/CYBER%20SECURITY%20BATCH%20-%203%20(pdf.io).pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/shareable-graphic.png" alt="I4fit Hackathon">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>I4fit Hackathon</h5>
+                        
+                        <a href="/static/certificates/i4fit%20hackathon%20(2).pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/Hack2skill-Certificate.png" alt="Hack2skill Hackathon">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Hack2skill Hackathon</h5>
+                        
+                        <a href="/static/certificates/Hack2skill-Certificate.png" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="badge-category-section" style="margin-bottom: 2rem; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 20px 25px; background: rgba(2, 12, 27, 0.4);">
+            <h4 class="subsection-title collapsible-header" onclick="toggleCategory('cybersecurity_ops')" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: none; margin-bottom: 0; padding-bottom: 0; transition: var(--transition);">
+                <span><i class="fas fa-shield-halved"></i> Cybersecurity Operations</span>
+                <span class="toggle-icon" id="icon-cybersecurity_ops" style="color: var(--accent-green); transition: transform 0.3s ease;"><i class="fas fa-chevron-down"></i></span>
+            </h4>
+            
+            <div class="badge-display-grid collapsible-content" id="content-cybersecurity_ops">
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/junior-cybersecurity-analyst-career-path.1.png" alt="Cisco Junior Cybersecurity Analyst">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Cisco Junior Cybersecurity Analyst</h5>
+                        
+                        <a href="/static/certificates/JuniorCybersecurityAnalystUpdate20260215-32-uqevzc.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/cybersecurity-fundamentals.png" alt="Cisco Cybersecurity Fundamentals">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Cisco Cybersecurity Fundamentals</h5>
+                        
+                        <a href="/static/certificates/Cisco%20Introduction%20to%20Cybersecurity.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/cyber-threat-management.png" alt="Cisco Cyber Threat Management">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Cisco Cyber Threat Management</h5>
+                        
+                        <a href="/static/certificates/CyberThreatManagementUpdate20260215-31-qprqd3.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/endpoint-security.png" alt="Cisco Endpoint Security">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Cisco Endpoint Security</h5>
+                        
+                        <a href="/static/certificates/EndpointSecurityUpdate20260106-33-oguv8b.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/delloite-simulation.jpg" alt="Deloitte Cybersecurity Simulation">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Deloitte Cybersecurity Simulation</h5>
+                        
+                        <a href="/static/certificates/Delloite%20Simulation.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/advent-of-cyber-2025.jpg" alt="TryHackMe Advent of Cyber 2025">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>TryHackMe Advent of Cyber 2025</h5>
+                        
+                        <a href="/static/certificates/Advent%20of%20Cyber%202025.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/cyber-security-associate-certificate.jpg" alt="SkillUp Cybersecurity Associate">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>SkillUp Cybersecurity Associate</h5>
+                        
+                        <a href="/static/certificates/Cyber%20security%20Associate%20Certificate.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="badge-category-section" style="margin-bottom: 2rem; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 20px 25px; background: rgba(2, 12, 27, 0.4);">
+            <h4 class="subsection-title collapsible-header" onclick="toggleCategory('core_networking')" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: none; margin-bottom: 0; padding-bottom: 0; transition: var(--transition);">
+                <span><i class="fas fa-network-wired"></i> Core Networking</span>
+                <span class="toggle-icon" id="icon-core_networking" style="color: var(--accent-green); transition: transform 0.3s ease;"><i class="fas fa-chevron-down"></i></span>
+            </h4>
+            
+            <div class="badge-display-grid collapsible-content" id="content-core_networking">
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/networking-basics.png" alt="Cisco Networking Basics">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Cisco Networking Basics</h5>
+                        
+                        <a href="/static/certificates/NetworkingBasicsUpdate20251213-31-txtw2r.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/networking-devices-and-initial-configuration.png" alt="Cisco Networking Devices &amp; Config">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Cisco Networking Devices &amp; Config</h5>
+                        
+                        <a href="/static/certificates/NetworkingDevicesandBasicConfigUpdate20251226-32-dtwour.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="badge-category-section" style="margin-bottom: 2rem; border: 1px solid rgba(0, 255, 0, 0.15); border-radius: 4px; padding: 20px 25px; background: rgba(2, 12, 27, 0.4);">
+            <h4 class="subsection-title collapsible-header" onclick="toggleCategory('cloud_ai')" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: none; margin-bottom: 0; padding-bottom: 0; transition: var(--transition);">
+                <span><i class="fas fa-brain"></i> Cloud &amp; Artificial Intelligence</span>
+                <span class="toggle-icon" id="icon-cloud_ai" style="color: var(--accent-green); transition: transform 0.3s ease;"><i class="fas fa-chevron-down"></i></span>
+            </h4>
+            
+            <div class="badge-display-grid collapsible-content" id="content-cloud_ai">
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/scorereport-oracle.jpg" alt="Oracle Cloud GenAI Professional">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Oracle Cloud GenAI Professional</h5>
+                        
+                        <a href="/static/certificates/ScoreReport%20Oracle.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/cybersecurity-fundamentals.png" alt="Quantum Algorithm Fundamentals Certificate">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Quantum Algorithm Fundamentals Certificate</h5>
+                        
+                        <a href="/static/certificates/AQV_Phase2_exam_certificate_HYD-M-F78A4406-1078.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/microsoft-1.jpg" alt="Microsoft Certified: AI Fundamentals">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Microsoft Certified: AI Fundamentals</h5>
+                        
+                        <a href="/static/certificates/MICROSOFT%201.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/microsoft-1.jpg" alt="Microsoft Copilot Specialist">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Microsoft Copilot Specialist</h5>
+                        
+                        <a href="/static/certificates/Microsoft%20Copilot.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/microsoft-1.jpg" alt="Microsoft Agents Specialist">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Microsoft Agents Specialist</h5>
+                        
+                        <a href="/static/certificates/Microsoft%20Agents.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/microsoft-1.jpg" alt="Microsoft AI Development">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Microsoft AI Development</h5>
+                        
+                        <a href="/static/certificates/Microsoft%20Ai.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/microsoft-1.jpg" alt="Microsoft Computer Vision">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Microsoft Computer Vision</h5>
+                        
+                        <a href="/static/certificates/Microsoft%20Computer%20Vision.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/microsoft-1.jpg" alt="Microsoft Copilot Chat Expert">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Microsoft Copilot Chat Expert</h5>
+                        
+                        <a href="/static/certificates/Copilot%20Chat.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/prompt-design-in-vertex-ai-skill-badge.png" alt="Google Cloud Prompt Design">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Google Cloud Prompt Design</h5>
+                        
+                        <span class="verify-badge-btn disabled-verify">
+                            Badge Verified <i class="fas fa-check-circle"></i>
+                        </span>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/develop-your-google-cloud-network-skill-badge.png" alt="Google Cloud Network Design">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Google Cloud Network Design</h5>
+                        
+                        <span class="verify-badge-btn disabled-verify">
+                            Badge Verified <i class="fas fa-check-circle"></i>
+                        </span>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/create-a-secure-data-lake-on-cloud-storage-skill-ba.png" alt="Google Cloud Data Lake Security">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Google Cloud Data Lake Security</h5>
+                        
+                        <span class="verify-badge-btn disabled-verify">
+                            Badge Verified <i class="fas fa-check-circle"></i>
+                        </span>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/protect-sensitive-data-with-data-loss-prevention-sk.png" alt="Google Cloud Data Loss Prevention">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>Google Cloud Data Loss Prevention</h5>
+                        
+                        <span class="verify-badge-btn disabled-verify">
+                            Badge Verified <i class="fas fa-check-circle"></i>
+                        </span>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/ibmdesign20260108-30-c973op.jpg" alt="IBM Enterprise Design Thinking">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>IBM Enterprise Design Thinking</h5>
+                        
+                        <a href="/static/certificates/IBMDesign20260108-30-c973op.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div class="badge-display-card">
+                    <div class="badge-img-wrapper">
+                        <img src="/static/badges/luepytjan126282.jpg" alt="LetsUpgrade Python Programming">
+                    </div>
+                    <div class="badge-card-info">
+                        <h5>LetsUpgrade Python Programming</h5>
+                        
+                        <a href="/static/certificates/LUEPYTJAN126282.pdf" target="_blank" class="verify-badge-btn">
+                            Verify Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<script>
+function toggleCategory(categoryId) {
+    const content = document.getElementById('content-' + categoryId);
+    const icon = document.getElementById('icon-' + categoryId).querySelector('i');
+    
+    if (content.classList.contains('collapsed')) {
+        content.classList.remove('collapsed');
+        icon.className = "fas fa-chevron-down";
+    } else {
+        content.classList.add('collapsed');
+        icon.className = "fas fa-chevron-right";
+    }
+}
+</script>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Veeranarayana Gorantla. All Systems Nominal.</p>
+            </div>
+            <div class="footer-right">
+                <div class="digital-signature">
+                    <p><i class="fas fa-fingerprint"></i> INTEGRITY CHECK: <span class="hash" id="integrity-hash">be06ccad0ce66d30</span></p>
+                    <p><i class="fas fa-clock"></i> LAST SCAN: <span class="timestamp">2026-07-31 14:27:30 UTC</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('integrity-hash');
+        if (el) {
+            const fetchIP = (url) => {
+                return fetch(url)
+                    .then(res => {
+                        if (!res.ok) throw new Error();
+                        return res.json();
+                    })
+                    .then(data => {
+                        const ip = data.ip || data.ip_addr || data.clientIp || data.query;
+                        if (ip) {
+                            el.textContent = 'IP: ' + ip;
+                            return true;
+                        }
+                        return false;
+                    });
+            };
+
+            fetchIP('https://api.ipify.org?format=json')
+                .catch(() => fetchIP('https://ipapi.co/json/'))
+                .catch(() => fetchIP('https://api.db-ip.com/v2/free/self'))
+                .catch(err => console.warn('Integrity trace bypassed: offline or blocked.', err));
+        }
+    });
+    </script>
+
+    <!-- Project Details Modal (Global) -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Project Protocol</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="modal-project-name">Project Name</h4>
+                <p id="modal-description">Detailed project description will be loaded here...</p>
+                <div class="modal-tech-stack" id="modal-tech-stack">
+                    <!-- Tech tags injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

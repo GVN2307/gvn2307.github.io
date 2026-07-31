@@ -27,16 +27,17 @@ def load_data():
         data = json.load(f)
     
     # Badge Discovery
-    # Scans static/badges
-    badge_dir = os.path.join('static', 'badges')
-    data['badges'] = []
-    if os.path.exists(badge_dir):
-        for filename in os.listdir(badge_dir):
-            if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
-                data['badges'].append({
-                    "name": filename.rsplit('.', 1)[0].replace('_', ' ').replace('-', ' ').title(),
-                    "image": filename
-                })
+    # Scans static/badges if not predefined in JSON
+    if not data.get('badges'):
+        badge_dir = os.path.join('static', 'badges')
+        data['badges'] = []
+        if os.path.exists(badge_dir):
+            for filename in os.listdir(badge_dir):
+                if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                    data['badges'].append({
+                        "name": filename.rsplit('.', 1)[0].replace('_', ' ').replace('-', ' ').title(),
+                        "image": filename
+                    })
     return data
 
 def get_integrity_hash():
@@ -47,6 +48,18 @@ def get_integrity_hash():
         return file_hash[:16]
     except Exception:
         return "UNKNOWN"
+
+# Compute static timestamp at startup so it is constant across all page visits
+STATIC_TIMESTAMP = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+
+def get_render_context():
+    data = load_data()
+    integrity = get_integrity_hash()
+    return {
+        "data": data,
+        "integrity": integrity,
+        "last_scanned": STATIC_TIMESTAMP
+    }
 
 @app.after_request
 def add_security_headers(response):
@@ -59,10 +72,10 @@ def add_security_headers(response):
     csp = (
         "default-src 'self'; "
         "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; "
-        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-        "font-src 'self' https://fonts.gstatic.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; "
+        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; "
         "img-src 'self' data: https://images.unsplash.com https://cdn.jsdelivr.net; "
-        "connect-src 'self';"
+        "connect-src 'self' https://api.ipify.org https://ipapi.co https://api.db-ip.com;"
     )
     response.headers['Content-Security-Policy'] = csp
     response.headers['X-Frame-Options'] = 'DENY' # Clickjacking protection
@@ -73,20 +86,45 @@ def add_security_headers(response):
     return response
 
 @app.route('/')
+@app.route('/index.html')
 def home():
     try:
-        data = load_data()
-        
-        # Calculate integrity hash (simulated)
-        integrity = hashlib.md5(str(data).encode()).hexdigest()[:12].upper()
-        
-        # Current timestamp
-        last_scanned = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+        return render_template('home.html', **get_render_context())
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
 
-        return render_template('index.html', 
-                             data=data, 
-                             integrity=integrity, 
-                             last_scanned=last_scanned)
+@app.route('/about.html')
+def identity():
+    try:
+        return render_template('about.html', **get_render_context())
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
+
+@app.route('/skills.html')
+def capabilities():
+    try:
+        return render_template('skills.html', **get_render_context())
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
+
+@app.route('/projects.html')
+def operations():
+    try:
+        return render_template('projects.html', **get_render_context())
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
+
+@app.route('/badges.html')
+def verified():
+    try:
+        return render_template('badges.html', **get_render_context())
+    except Exception as e:
+        return f"System Error: {str(e)}", 500
+
+@app.route('/contact.html')
+def transmission():
+    try:
+        return render_template('contact.html', **get_render_context())
     except Exception as e:
         return f"System Error: {str(e)}", 500
 

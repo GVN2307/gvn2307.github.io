@@ -35,7 +35,7 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="/index.html"
-                            class="active">/home</a></li>
+                            class="">/home</a></li>
                     <li><a href="/about.html"
                             class="">/identity</a></li>
                     <li><a href="/skills.html"
@@ -45,7 +45,7 @@
                     <li><a href="/badges.html"
                             class="">/verified_badges</a></li>
                     <li><a href="/contact.html"
-                            class="">/comms</a></li>
+                            class="active">/comms</a></li>
                 </ul>
                 <div class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -56,40 +56,36 @@
 
     <main>
         
-<!-- Hero Section -->
-<section id="hero" class="full-height">
-    <div class="container hero-content">
-        <div class="hero-text">
-            <p class="status-indicator"><span class="blink">●</span> SYSTEM ONLINE</p>
-            <h1>Veeranarayana Gorantla</h1>
-            <h2 class="typing-effect" id="typing-text"></h2>
-            <p class="hero-bio">Highly driven Computer Science student with a strong background (8.0 CGPA) in software development and cybersecurity. Competent in Full Stack fundamentals and Web Application Security. Lifelong learner actively pursuing industry certifications and eager to contribute to fast-paced teams in development or security roles.</p>
-            <div class="cta-buttons">
-                <a href="/projects.html" class="btn primary-btn">Initialize Protocol <i
-                        class="fas fa-terminal"></i></a>
-                <a href="https://github.com/GVN2307" target="_blank" class="btn secondary-btn">GitHub
-                    Access <i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/veeranarayanagorantla/" target="_blank" class="btn secondary-btn">LinkedIn
-                    Profile <i class="fab fa-linkedin"></i></a>
-            </div>
+<!-- Contact Section -->
+<section id="contact" class="full-height reveal">
+    <div class="container small-container">
+        <div class="section-header">
+            <h3><span class="accent">05.</span> /secure_comm_channel</h3>
+            <div class="line"></div>
         </div>
-        <!-- Optional: Place for a cyber-themed illustration or 3D element -->
-        <div class="hero-visual">
-            <div class="radar-circle"></div>
-            <div class="code-block">
-                <div class="code-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <pre><code>def init_security():
-    while True:
-        threats = scan_network()
-        if threats:
-            neutralize(threats)
-            log_incident()
-        sleep(0.1)</code></pre>
+        <div class="contact-terminal">
+            <div class="terminal-bar">
+                <span class="btn-dot w"></span>
+                <span class="btn-dot y"></span>
+                <span class="btn-dot g"></span>
+                <span class="title">send_message.exe</span>
             </div>
+            <form id="contact-form" class="terminal-form">
+                <div class="form-group">
+                    <label for="name">root@user:~$ enter_name</label>
+                    <input type="text" id="name" name="name" required placeholder="_">
+                </div>
+                <div class="form-group">
+                    <label for="email">root@user:~$ enter_email</label>
+                    <input type="email" id="email" name="email" required placeholder="_">
+                </div>
+                <div class="form-group">
+                    <label for="message">root@user:~$ enter_message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="_"></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn w-full">TRANSMIT DATA</button>
+            </form>
+            <div id="form-response" class="hidden"></div>
         </div>
     </div>
 </section>

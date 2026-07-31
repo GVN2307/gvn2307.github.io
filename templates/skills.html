@@ -2,27 +2,82 @@
 
 {% block content %}
 <!-- Skills Section -->
-<section id="skills" class="full-height reveal">
+<section id="skills" class="reveal" style="padding-top: 100px; padding-bottom: 80px;">
     <div class="container">
         <div class="section-header">
             <h3><span class="accent">02.</span> /capabilities_matrix</h3>
             <div class="line"></div>
         </div>
+        
+        <p class="comment" style="font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 2rem;">// Click on any capability node to analyze its implementation telemetry.</p>
+        
         <div class="skills-grid">
             {% for category, skill_list in data.skills.items() %}
             <div class="skill-category">
                 <h4>{{ category }}</h4>
                 <div class="skill-tags">
                     {% for skill in skill_list %}
-                    <span class="skill-tag">{{ skill }}</span>
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('{{ skill.name }}', '{{ skill.description | replace("'", "\\'") }}', '{{ skill.usage | replace("'", "\\'") }}')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        {{ skill.name }}
+                    </span>
                     {% endfor %}
                 </div>
-                <div class="progress-bar-container">
+                <div class="progress-bar-container" style="margin-top: 15px;">
                     <div class="progress-bar" style="width: {{ [85 + (loop.index * 3), 100] | min }}%"></div>
                 </div>
             </div>
             {% endfor %}
         </div>
+
+        <!-- Skill Details Display Panel -->
+        <div class="skill-detail-panel" id="skill-detail-panel" style="margin-top: 4rem; opacity: 0; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: none;">
+            <div class="terminal-window">
+                <div class="terminal-bar">
+                    <span class="btn-dot w"></span>
+                    <span class="btn-dot y"></span>
+                    <span class="btn-dot g"></span>
+                    <span class="title">capability_telemetry.log</span>
+                </div>
+                <div class="terminal-body" style="font-size: 0.95rem; line-height: 1.6;">
+                    <p><span class="key">"Capability":</span> <span class="value" id="skill-detail-name" style="color: var(--accent-green); font-weight: bold;">...</span></p>
+                    <p><span class="key">"Implementation":</span> <span class="value" id="skill-detail-usage" style="color: #fff;">...</span></p>
+                    <p><span class="key">"Description":</span> <span class="value" id="skill-detail-desc" style="color: var(--text-secondary);">...</span></p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<script>
+function showSkillDetail(name, description, usage) {
+    const panel = document.getElementById('skill-detail-panel');
+    
+    // Update elements
+    document.getElementById('skill-detail-name').textContent = name;
+    document.getElementById('skill-detail-usage').textContent = usage || "Basic understanding and lab testing";
+    document.getElementById('skill-detail-desc').textContent = description;
+    
+    // Animate display
+    panel.style.display = "block";
+    panel.offsetHeight; // force reflow
+    panel.style.opacity = "1";
+    panel.style.transform = "translateY(0)";
+    
+    // Toggle active tag state
+    document.querySelectorAll('.interactive-tag').forEach(tag => {
+        if (tag.textContent.trim() === name) {
+            tag.classList.add('active-skill-tag');
+        } else {
+            tag.classList.remove('active-skill-tag');
+        }
+    });
+
+    // Smooth scroll down to panel
+    setTimeout(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+}
+</script>
 {% endblock %}

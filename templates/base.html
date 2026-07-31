@@ -22,6 +22,8 @@
 </head>
 
 <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <div class="scanline"></div>
     <canvas id="matrix-bg"></canvas>
 
@@ -63,12 +65,40 @@
             </div>
             <div class="footer-right">
                 <div class="digital-signature">
-                    <p><i class="fas fa-fingerprint"></i> INTEGRITY CHECK: <span class="hash">{{ integrity }}</span></p>
+                    <p><i class="fas fa-fingerprint"></i> INTEGRITY CHECK: <span class="hash" id="integrity-hash">{{ integrity }}</span></p>
                     <p><i class="fas fa-clock"></i> LAST SCAN: <span class="timestamp">{{ last_scanned }}</span></p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('integrity-hash');
+        if (el) {
+            const fetchIP = (url) => {
+                return fetch(url)
+                    .then(res => {
+                        if (!res.ok) throw new Error();
+                        return res.json();
+                    })
+                    .then(data => {
+                        const ip = data.ip || data.ip_addr || data.clientIp || data.query;
+                        if (ip) {
+                            el.textContent = 'IP: ' + ip;
+                            return true;
+                        }
+                        return false;
+                    });
+            };
+
+            fetchIP('https://api.ipify.org?format=json')
+                .catch(() => fetchIP('https://ipapi.co/json/'))
+                .catch(() => fetchIP('https://api.db-ip.com/v2/free/self'))
+                .catch(err => console.warn('Integrity trace bypassed: offline or blocked.', err));
+        }
+    });
+    </script>
 
     <!-- Project Details Modal (Global) -->
     <div id="project-modal" class="modal-overlay">

@@ -8,29 +8,101 @@
             <h3><span class="accent">03.</span> /operational_logs</h3>
             <div class="line"></div>
         </div>
-        <div class="projects-grid">
-            {% for project in data.projects %}
-            <article class="project-card">
-                <div class="card-header">
-                    <i class="far fa-folder-open"></i>
-                    <div class="project-links">
-                        <a href="{{ project.link }}" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" class="details-link"><i class="fas fa-external-link-alt"></i></a>
+
+        <!-- Featured Operations -->
+        <div class="project-subsection">
+            <h4 class="subsection-title"><i class="fas fa-shield-halved"></i> Featured Operations (Completed)</h4>
+            <div class="projects-grid">
+                {% for project in data.projects if project.priority == 'featured' %}
+                <article class="project-card">
+                    <div class="card-header">
+                        <i class="far fa-folder-open"></i>
+                        <div class="project-links">
+                            <a href="{{ project.link }}" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            <a href="#" class="details-link" title="Operation Details"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <h4>{{ project.title }}</h4>
-                    <p>{{ project.description }}</p>
-                </div>
-                <div class="card-footer">
-                    <ul>
-                        {% for tech in project.tech %}
-                        <li>{{ tech }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </article>
-            {% endfor %}
+                    <div class="card-body">
+                        <h4>{{ project.title }}</h4>
+                        {% if project.badge %}
+                        <span class="project-badge">{{ project.badge }}</span>
+                        {% endif %}
+                        <p>{{ project.description }}</p>
+                        
+                        {% if project.command %}
+                        <div class="mock-terminal">
+                            <div class="mock-terminal-bar">
+                                <span class="mock-terminal-dot red"></span>
+                                <span class="mock-terminal-dot yellow"></span>
+                                <span class="mock-terminal-dot green"></span>
+                                <span class="mock-terminal-title">{{ project.id }}.exe</span>
+                            </div>
+                            <div class="mock-terminal-body">
+                                <pre><code><span class="terminal-prompt">>_</span> {{ project.command }}<br><span class="terminal-output">{{ project.output }}</span></code></pre>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <ul style="margin-bottom: 15px;">
+                            {% for tech in project.tech %}
+                            <li>{{ tech }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="project-card-actions" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="{{ project.link }}" target="_blank" class="repo-redirect-btn">
+                                Access Code <i class="fab fa-github"></i>
+                            </a>
+                            {% if project.live_link %}
+                            <a href="{{ project.live_link }}" target="_blank" class="repo-redirect-btn live-btn">
+                                Live Demo <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Ongoing R&D -->
+        <div class="project-subsection" style="margin-top: 4rem;">
+            <h4 class="subsection-title"><i class="fas fa-microchip"></i> Ongoing R&D (In Progress / Future Sprints)</h4>
+            <div class="projects-grid">
+                {% for project in data.projects if project.priority == 'ongoing' %}
+                <article class="project-card ongoing-card">
+                    <div class="card-header">
+                        <i class="far fa-folder-open"></i>
+                        <div class="project-links">
+                            <a href="{{ project.link }}" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                            <a href="#" class="details-link" title="Operation Details"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>{{ project.title }}</h4>
+                        <span class="project-badge status-badge"><i class="fas fa-sync fa-spin"></i> Sprint Active</span>
+                        <p>{{ project.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <ul style="margin-bottom: 15px;">
+                            {% for tech in project.tech %}
+                            <li>{{ tech }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="project-card-actions" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="{{ project.link }}" target="_blank" class="repo-redirect-btn">
+                                Access Code <i class="fab fa-github"></i>
+                            </a>
+                            {% if project.live_link %}
+                            <a href="{{ project.live_link }}" target="_blank" class="repo-redirect-btn live-btn">
+                                Live Demo <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>

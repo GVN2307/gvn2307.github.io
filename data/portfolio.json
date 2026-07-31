@@ -20,98 +20,229 @@
   ],
   "skills": {
     "Cybersecurity": [
-      "Web Application Security",
-      "Data Loss Prevention",
-      "Network Defense",
-      "Vulnerability Assessment",
-      "Burp Suite"
+      {
+        "name": "Burp Suite",
+        "description": "Used in web application security audits and penetration testing labs to intercept, analyze, and modify web traffic.",
+        "usage": "Practiced in vulnerability assessment labs."
+      },
+      {
+        "name": "Nmap",
+        "description": "Used for network discovery, port scanning, and host audits to identify open vectors.",
+        "usage": "Active practice in TryHackMe and network defense labs."
+      },
+      {
+        "name": "SIEM Management",
+        "description": "Basic understanding of security information and event management, analyzing log streams and correlation rules.",
+        "usage": "Explored in Deloitte Job Simulation and SOC labs."
+      },
+      {
+        "name": "Web Exploitation",
+        "description": "Basic knowledge of finding OWASP Top 10 vulnerabilities (SQLi, XSS, broken authentication) in web apps.",
+        "usage": "Practiced in vulnerable environments and TryHackMe."
+      },
+      {
+        "name": "Penetration Tester",
+        "description": "Applying structured testing methods to scan, exploit, and report weaknesses in digital assets.",
+        "usage": "Foundational practice in virtual labs."
+      }
     ],
-    "AI & Cloud": [
-      "Oracle Cloud GenAI Professional",
-      "LLM & RAG",
-      "Prompt Design (Vertex AI)",
-      "Generative AI"
+    "AI": [
+      {
+        "name": "Prompt Engineering",
+        "description": "Designing and optimizing prompts to guide Large Language Models (LLMs) to perform specific tasks reliably.",
+        "usage": "Applied in Vertex AI and GenAI professional labs."
+      },
+      {
+        "name": "Code Optimization",
+        "description": "Using AI coding assistants to review, clean, and speed up backend code scripts.",
+        "usage": "Active use in personal codebases."
+      },
+      {
+        "name": "LLM",
+        "description": "Basic knowledge of transformer architectures, context windows, and hosting open-source models.",
+        "usage": "Theoretical studies and api integration."
+      },
+      {
+        "name": "RAG & Open Knowledge Format",
+        "description": "Using Retrieval-Augmented Generation to feed structured external data (vector DBs) into LLM context windows.",
+        "usage": "Explored in Oracle GenAI Professional training."
+      },
+      {
+        "name": "Generative AI",
+        "description": "Integrating GenAI APIs (like Google Gemini and OpenAI) to automate workflows and respond to user inputs.",
+        "usage": "Certified Oracle Cloud GenAI Professional."
+      }
     ],
     "Development": [
-      "Python",
-      "C++",
-      "HTML & CSS",
-      "Data Structures (DSA)",
-      "Git & GitHub"
-    ],
-    "Networking": [
-      "Cisco Networking Basics",
-      "Operating Systems",
-      "Network Configuration"
+      {
+        "name": "Fullstack Web App (Firebase & Supabase)",
+        "description": "Building responsive web pages backed by serverless databases, authentication, and hosting.",
+        "usage": "Used in Blood Bank Management System."
+      },
+      {
+        "name": "Python Backend",
+        "description": "Developing web APIs and scraping pipelines using FastAPI, Flask, and requests.",
+        "usage": "Used in News Analyzer and Vulnerability Scanner."
+      },
+      {
+        "name": "Java Backend",
+        "description": "Foundational backend development, implementing algorithms and object-oriented patterns in Java.",
+        "usage": "Academic labs and basic projects."
+      },
+      {
+        "name": "GitHub & Git Management",
+        "description": "Using git branches, commits, pulls, and merges for organized version control.",
+        "usage": "Used in all major project repositories."
+      },
+      {
+        "name": "Mobile App Dev (Firebase Backend; Dart / React Native)",
+        "description": "Developing cross-platform mobile apps for Android and iOS using Dart/Flutter and React Native, with Firebase for real-time databases and auth.",
+        "usage": "Used in IndiaRuns and Workafella App."
+      },
+      {
+        "name": "Multi-Database Exploration",
+        "description": "Exploring SQL (PostgreSQL, MySQL) and NoSQL (Firebase Firestore, Supabase) databases for storage.",
+        "usage": "Used in FoodFlow and Workafella."
+      }
     ]
   },
   "projects": [
     {
-      "id": "proj1",
-      "title": "Blood Bank System",
-      "description": "A web-based management system addressing remote location emergency issues and facilitating easier access to blood banks.",
-      "tech": [
-        "Web Development",
-        "Database Management",
-        "Healthcare Tech"
-      ],
-      "link": "https://github.com/GVN2307/Blood-Bank-Management-System"
-    },
-    {
-      "id": "proj2",
-      "title": "Morpheous Pill Website",
-      "description": "A creative and interactive website built to explore advanced HTML and CSS techniques, inspired by pop-culture themes.",
-      "tech": [
-        "HTML5",
-        "CSS3",
-        "Creative Design"
-      ],
-      "link": "https://github.com/GVN2307"
-    },
-    {
-      "id": "proj3",
+      "id": "news_analyzer",
       "title": "News Analyzer",
-      "description": "An ongoing project focused on analyzing data veracity. Currently in active development to explore new algorithms.",
+      "description": "A high-performance machine learning platform designed to analyze media data veracity, detect misinformation, and perform automated NLP evaluations on large-scale text inputs.",
       "tech": [
         "Python",
-        "Data Analysis",
-        "Algorithm Design"
+        "NLP",
+        "Machine Learning",
+        "APIs"
       ],
-      "link": "https://github.com/GVN2307/News-Analyzer"
+      "link": "https://github.com/GVN2307/News-Analyzer",
+      "live_link": "https://news-analyzer7.netlify.app/",
+      "command": "python analyze.py --url 'https://news-analyzer7.netlify.app'",
+      "output": "[+] STATUS: ACTIVE | CREDIBILITY: 98% (AI SCROLL SCAN)",
+      "priority": "featured"
     },
     {
-      "id": "proj4",
-      "title": "Vulnerability Scanner",
-      "description": "Developed a Python-based vulnerability scanner with an HTML interface to identify potential security weaknesses in web applications.",
+      "id": "india_runs",
+      "title": "IndiaRuns",
+      "description": "A comprehensive fitness tracking and runner's dashboard tailored for mapping paths, logging runs, and tracking performance with active community leaderboard metrics.",
+      "tech": [
+        "Mobile App",
+        "React Native",
+        "Dart",
+        "Firebase"
+      ],
+      "link": "https://github.com/GVN2307/IndiaRuns",
+      "live_link": "https://indiworks.dpdns.org/",
+      "command": "node tracker.js --domain 'indiworks.dpdns.org'",
+      "output": "[+] ACTIVE ROUTE: RUNNERS IN PLAY | TELEMETRY SECURE",
+      "priority": "featured"
+    },
+    {
+      "id": "blood_bank",
+      "title": "Blood Bank Management System",
+      "description": "A specialized healthcare system addressing emergency blood matching and inventory logistics for remote areas to connect donors and banks instantly.",
+      "tech": [
+        "Web App",
+        "Firebase",
+        "Frontend",
+        "Database"
+      ],
+      "link": "https://github.com/GVN2307/Blood-Bank-Management-System",
+      "command": "python db_connect.py --query 'blood_stock'",
+      "output": "[+] MATCH FOUND: 3 UNITS TRANSMITTING ALERT",
+      "priority": "featured"
+    },
+    {
+      "id": "workafella",
+      "title": "Workafella App",
+      "description": "A real-world workspace reservation and coworking space management application designed for smooth member bookings, staff coordination, and amenities management.",
+      "tech": [
+        "Mobile App",
+        "Firebase",
+        "Dart / Flutter",
+        "API Integration"
+      ],
+      "link": "https://github.com/GVN2307/Workafella-app",
+      "live_link": "https://workafella.samriddhianveshana.com/login",
+      "command": "curl -I 'https://workafella.samriddhianveshana.com/login'",
+      "output": "[+] HTTP/1.1 200 OK | SPACE LOCKER CAPACITY: 82%",
+      "priority": "featured",
+      "badge": "Internship Project"
+    },
+    {
+      "id": "evidence_synthesis",
+      "title": "EvidenceSynthesis",
+      "description": "An ongoing platform to automate clinical and literature systematic reviews through intelligent data synthesis, extraction, and summarization pipelines.",
       "tech": [
         "Python",
-        "HTML",
-        "Security Tools"
+        "AI / RAG",
+        "Knowledge Extraction"
       ],
-      "link": "https://github.com/GVN2307/vulnerability-scanner"
+      "link": "https://github.com/GVN2307/EvidenceSynthesis",
+      "priority": "ongoing"
     },
     {
-      "id": "proj5",
-      "title": "FoodFlow Protocol",
-      "description": "A full-stack platform to create a demand-driven agricultural ecosystem.",
+      "id": "food_flow",
+      "title": "FoodFlow",
+      "description": "A full-stack demand-driven agricultural platform that evaluates crop conditions via image classification models and projects market supply chains.",
       "tech": [
-        "Python (FastAPI)",
+        "FastAPI",
+        "PostgreSQL",
         "TypeScript",
-        "Tailwind CSS",
-        "PostgreSQL"
+        "Tailwind CSS"
       ],
-      "link": "https://github.com/GVN2307/FoodFlow"
+      "link": "https://github.com/GVN2307/FoodFlow",
+      "priority": "ongoing"
     },
     {
-      "id": "proj6",
-      "title": "FedEx Flex-Pay AI",
-      "description": "AI-driven payment flexibility solution for FedEx transactions to manage late payments effectively.",
+      "id": "vuln_scanner",
+      "title": "Vulnerability Scanner",
+      "description": "A security auditing tool written in Python that scans target domains for critical vulnerabilities like SQL injection, XSS, and open ports with an interactive interface.",
       "tech": [
         "Python",
-        "AI",
-        "Machine Learning"
+        "Web Exploitation",
+        "HTML Dash"
       ],
-      "link": "https://github.com/GVN2307/Fedx-Flex-pay-AI"
+      "link": "https://github.com/GVN2307/vulnerability-scanner",
+      "priority": "ongoing"
+    },
+    {
+      "id": "ryzen_shield",
+      "title": "RyzenShield",
+      "description": "A lightweight host-based protection program built to monitor system logs, detect suspicious processes, and defend target environments against attacks.",
+      "tech": [
+        "Python",
+        "Endpoint Security",
+        "Threat Detection"
+      ],
+      "link": "https://github.com/GVN2307/RyzenShield",
+      "priority": "ongoing"
+    },
+    {
+      "id": "apl",
+      "title": "APL (Application Performance Ledger)",
+      "description": "A robust backend service designed to audit, monitor, and register system performance event listings with optimized database operations.",
+      "tech": [
+        "Python Backend",
+        "Databases",
+        "Log Auditing"
+      ],
+      "link": "https://github.com/GVN2307/APL",
+      "priority": "ongoing"
+    },
+    {
+      "id": "crisis_coordination",
+      "title": "CrisisCoordination",
+      "description": "A decentralized crisis response platform offering real-time task distribution, maps coordination, and messaging for emergency dispatch units.",
+      "tech": [
+        "WebSockets",
+        "Fullstack",
+        "Emergency Tech"
+      ],
+      "link": "https://github.com/GVN2307/Crisiscoordination",
+      "priority": "ongoing"
     }
   ],
   "certifications": [
@@ -188,10 +319,16 @@
   ],
   "experience": [
     {
-      "role": "Cybersecurity Job Simulation",
-      "company": "Deloitte Australia",
-      "period": "Virtual Internship",
-      "description": "Completed practical task modules in cybersecurity operations, analyzing malware, and ensuring compliance with security standards. Gained hands-on experience in SOC operations."
+      "role": "Software Engineering Intern",
+      "company": "Smariddhi Anveshana Pvt. Limited",
+      "period": "May 2026 - July 2026",
+      "description": "Onsite internship focused on development operations, database scaling, web application integrations, and AI workflow automation."
+    },
+    {
+      "role": "Cybersecurity & Development Intern",
+      "company": "Elevate Labs",
+      "period": "Dec 2025",
+      "description": "Remote internship of 45 days. Conducted network auditing, security code reviews, and implemented responsive layout structures."
     },
     {
       "role": "Aspiring Cybersecurity Professional",
@@ -200,5 +337,169 @@
       "description": "Actively building skills in Network Defense, Endpoint Security, and Cloud AI (Oracle/Google). Certified in Cisco Networking and Cybersecurity fundamentals."
     }
   ],
-  "badges": []
+  "badge_categories": [
+    {
+      "id": "internships_hackathons",
+      "category_name": "Internships & Hackathons",
+      "icon": "fas fa-trophy",
+      "badges": [
+        {
+          "name": "Samriddhi Anveshana Summer Internship",
+          "image": "Internship.jpg",
+          "pdf": "I4fit Hackathon.pdf"
+        },
+        {
+          "name": "Elevate Labs Cybersecurity Internship",
+          "image": "cyber-security-associate-certificate.jpg",
+          "pdf": "CYBER SECURITY BATCH - 3 (pdf.io).pdf"
+        },
+        {
+          "name": "I4fit Hackathon",
+          "image": "shareable-graphic.png",
+          "pdf": "i4fit hackathon (2).pdf"
+        },
+        {
+          "name": "Hack2skill Hackathon",
+          "image": "Hack2skill-Certificate.png",
+          "pdf": "Hack2skill-Certificate.png"
+        }
+      ]
+    },
+    {
+      "id": "cybersecurity_ops",
+      "category_name": "Cybersecurity Operations",
+      "icon": "fas fa-shield-halved",
+      "badges": [
+        {
+          "name": "Cisco Junior Cybersecurity Analyst",
+          "image": "junior-cybersecurity-analyst-career-path.1.png",
+          "pdf": "JuniorCybersecurityAnalystUpdate20260215-32-uqevzc.pdf"
+        },
+        {
+          "name": "Cisco Cybersecurity Fundamentals",
+          "image": "cybersecurity-fundamentals.png",
+          "pdf": "Cisco Introduction to Cybersecurity.pdf"
+        },
+        {
+          "name": "Cisco Cyber Threat Management",
+          "image": "cyber-threat-management.png",
+          "pdf": "CyberThreatManagementUpdate20260215-31-qprqd3.pdf"
+        },
+        {
+          "name": "Cisco Endpoint Security",
+          "image": "endpoint-security.png",
+          "pdf": "EndpointSecurityUpdate20260106-33-oguv8b.pdf"
+        },
+        {
+          "name": "Deloitte Cybersecurity Simulation",
+          "image": "delloite-simulation.jpg",
+          "pdf": "Delloite Simulation.pdf"
+        },
+        {
+          "name": "TryHackMe Advent of Cyber 2025",
+          "image": "advent-of-cyber-2025.jpg",
+          "pdf": "Advent of Cyber 2025.pdf"
+        },
+        {
+          "name": "SkillUp Cybersecurity Associate",
+          "image": "cyber-security-associate-certificate.jpg",
+          "pdf": "Cyber security Associate Certificate.pdf"
+        }
+      ]
+    },
+    {
+      "id": "core_networking",
+      "category_name": "Core Networking",
+      "icon": "fas fa-network-wired",
+      "badges": [
+        {
+          "name": "Cisco Networking Basics",
+          "image": "networking-basics.png",
+          "pdf": "NetworkingBasicsUpdate20251213-31-txtw2r.pdf"
+        },
+        {
+          "name": "Cisco Networking Devices & Config",
+          "image": "networking-devices-and-initial-configuration.png",
+          "pdf": "NetworkingDevicesandBasicConfigUpdate20251226-32-dtwour.pdf"
+        }
+      ]
+    },
+    {
+      "id": "cloud_ai",
+      "category_name": "Cloud & Artificial Intelligence",
+      "icon": "fas fa-brain",
+      "badges": [
+        {
+          "name": "Oracle Cloud GenAI Professional",
+          "image": "scorereport-oracle.jpg",
+          "pdf": "ScoreReport Oracle.pdf"
+        },
+        {
+          "name": "Quantum Algorithm Fundamentals Certificate",
+          "image": "cybersecurity-fundamentals.png",
+          "pdf": "AQV_Phase2_exam_certificate_HYD-M-F78A4406-1078.pdf"
+        },
+        {
+          "name": "Microsoft Certified: AI Fundamentals",
+          "image": "microsoft-1.jpg",
+          "pdf": "MICROSOFT 1.pdf"
+        },
+        {
+          "name": "Microsoft Copilot Specialist",
+          "image": "microsoft-1.jpg",
+          "pdf": "Microsoft Copilot.pdf"
+        },
+        {
+          "name": "Microsoft Agents Specialist",
+          "image": "microsoft-1.jpg",
+          "pdf": "Microsoft Agents.pdf"
+        },
+        {
+          "name": "Microsoft AI Development",
+          "image": "microsoft-1.jpg",
+          "pdf": "Microsoft Ai.pdf"
+        },
+        {
+          "name": "Microsoft Computer Vision",
+          "image": "microsoft-1.jpg",
+          "pdf": "Microsoft Computer Vision.pdf"
+        },
+        {
+          "name": "Microsoft Copilot Chat Expert",
+          "image": "microsoft-1.jpg",
+          "pdf": "Copilot Chat.pdf"
+        },
+        {
+          "name": "Google Cloud Prompt Design",
+          "image": "prompt-design-in-vertex-ai-skill-badge.png",
+          "pdf": null
+        },
+        {
+          "name": "Google Cloud Network Design",
+          "image": "develop-your-google-cloud-network-skill-badge.png",
+          "pdf": null
+        },
+        {
+          "name": "Google Cloud Data Lake Security",
+          "image": "create-a-secure-data-lake-on-cloud-storage-skill-ba.png",
+          "pdf": null
+        },
+        {
+          "name": "Google Cloud Data Loss Prevention",
+          "image": "protect-sensitive-data-with-data-loss-prevention-sk.png",
+          "pdf": null
+        },
+        {
+          "name": "IBM Enterprise Design Thinking",
+          "image": "ibmdesign20260108-30-c973op.jpg",
+          "pdf": "IBMDesign20260108-30-c973op.pdf"
+        },
+        {
+          "name": "LetsUpgrade Python Programming",
+          "image": "luepytjan126282.jpg",
+          "pdf": "LUEPYTJAN126282.pdf"
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veeranarayana Gorantla | Cybersecurity Portfolio</title>
+    <meta name="description" content="Highly driven Computer Science student with a strong background (8.0 CGPA) in software development and cybersecurity. Competent in Full Stack fundamentals and Web Application Security. Lifelong learner actively pursuing industry certifications and eager to contribute to fast-paced teams in development or security roles.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="scanline"></div>
+    <canvas id="matrix-bg"></canvas>
+
+    <header id="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span class="prompt">>_</span> <span class="glitch" data-text="GVN2307">GVN2307</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/index.html"
+                            class="">/home</a></li>
+                    <li><a href="/about.html"
+                            class="">/identity</a></li>
+                    <li><a href="/skills.html"
+                            class="active">/capabilities</a></li>
+                    <li><a href="/projects.html"
+                            class="">/operations</a></li>
+                    <li><a href="/badges.html"
+                            class="">/verified_badges</a></li>
+                    <li><a href="/contact.html"
+                            class="">/comms</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+<!-- Skills Section -->
+<section id="skills" class="reveal" style="padding-top: 100px; padding-bottom: 80px;">
+    <div class="container">
+        <div class="section-header">
+            <h3><span class="accent">02.</span> /capabilities_matrix</h3>
+            <div class="line"></div>
+        </div>
+        
+        <p class="comment" style="font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 2rem;">// Click on any capability node to analyze its implementation telemetry.</p>
+        
+        <div class="skills-grid">
+            
+            <div class="skill-category">
+                <h4>Cybersecurity</h4>
+                <div class="skill-tags">
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Burp Suite', 'Used in web application security audits and penetration testing labs to intercept, analyze, and modify web traffic.', 'Practiced in vulnerability assessment labs.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Burp Suite
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Nmap', 'Used for network discovery, port scanning, and host audits to identify open vectors.', 'Active practice in TryHackMe and network defense labs.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Nmap
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('SIEM Management', 'Basic understanding of security information and event management, analyzing log streams and correlation rules.', 'Explored in Deloitte Job Simulation and SOC labs.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        SIEM Management
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Web Exploitation', 'Basic knowledge of finding OWASP Top 10 vulnerabilities (SQLi, XSS, broken authentication) in web apps.', 'Practiced in vulnerable environments and TryHackMe.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Web Exploitation
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Penetration Tester', 'Applying structured testing methods to scan, exploit, and report weaknesses in digital assets.', 'Foundational practice in virtual labs.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Penetration Tester
+                    </span>
+                    
+                </div>
+                <div class="progress-bar-container" style="margin-top: 15px;">
+                    <div class="progress-bar" style="width: 88%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4>AI</h4>
+                <div class="skill-tags">
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Prompt Engineering', 'Designing and optimizing prompts to guide Large Language Models (LLMs) to perform specific tasks reliably.', 'Applied in Vertex AI and GenAI professional labs.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Prompt Engineering
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Code Optimization', 'Using AI coding assistants to review, clean, and speed up backend code scripts.', 'Active use in personal codebases.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Code Optimization
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('LLM', 'Basic knowledge of transformer architectures, context windows, and hosting open-source models.', 'Theoretical studies and api integration.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        LLM
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('RAG &amp; Open Knowledge Format', 'Using Retrieval-Augmented Generation to feed structured external data (vector DBs) into LLM context windows.', 'Explored in Oracle GenAI Professional training.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        RAG &amp; Open Knowledge Format
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Generative AI', 'Integrating GenAI APIs (like Google Gemini and OpenAI) to automate workflows and respond to user inputs.', 'Certified Oracle Cloud GenAI Professional.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Generative AI
+                    </span>
+                    
+                </div>
+                <div class="progress-bar-container" style="margin-top: 15px;">
+                    <div class="progress-bar" style="width: 91%"></div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Development</h4>
+                <div class="skill-tags">
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Fullstack Web App (Firebase &amp; Supabase)', 'Building responsive web pages backed by serverless databases, authentication, and hosting.', 'Used in Blood Bank Management System.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Fullstack Web App (Firebase &amp; Supabase)
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Python Backend', 'Developing web APIs and scraping pipelines using FastAPI, Flask, and requests.', 'Used in News Analyzer and Vulnerability Scanner.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Python Backend
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Java Backend', 'Foundational backend development, implementing algorithms and object-oriented patterns in Java.', 'Academic labs and basic projects.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Java Backend
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('GitHub &amp; Git Management', 'Using git branches, commits, pulls, and merges for organized version control.', 'Used in all major project repositories.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        GitHub &amp; Git Management
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Mobile App Dev (Firebase Backend; Dart / React Native)', 'Developing cross-platform mobile apps for Android and iOS using Dart/Flutter and React Native, with Firebase for real-time databases and auth.', 'Used in IndiaRuns and Workafella App.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Mobile App Dev (Firebase Backend; Dart / React Native)
+                    </span>
+                    
+                    <span class="skill-tag interactive-tag" 
+                          onclick="showSkillDetail('Multi-Database Exploration', 'Exploring SQL (PostgreSQL, MySQL) and NoSQL (Firebase Firestore, Supabase) databases for storage.', 'Used in FoodFlow and Workafella.')" 
+                          style="cursor: pointer; transition: var(--transition);">
+                        Multi-Database Exploration
+                    </span>
+                    
+                </div>
+                <div class="progress-bar-container" style="margin-top: 15px;">
+                    <div class="progress-bar" style="width: 94%"></div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Skill Details Display Panel -->
+        <div class="skill-detail-panel" id="skill-detail-panel" style="margin-top: 4rem; opacity: 0; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: none;">
+            <div class="terminal-window">
+                <div class="terminal-bar">
+                    <span class="btn-dot w"></span>
+                    <span class="btn-dot y"></span>
+                    <span class="btn-dot g"></span>
+                    <span class="title">capability_telemetry.log</span>
+                </div>
+                <div class="terminal-body" style="font-size: 0.95rem; line-height: 1.6;">
+                    <p><span class="key">"Capability":</span> <span class="value" id="skill-detail-name" style="color: var(--accent-green); font-weight: bold;">...</span></p>
+                    <p><span class="key">"Implementation":</span> <span class="value" id="skill-detail-usage" style="color: #fff;">...</span></p>
+                    <p><span class="key">"Description":</span> <span class="value" id="skill-detail-desc" style="color: var(--text-secondary);">...</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function showSkillDetail(name, description, usage) {
+    const panel = document.getElementById('skill-detail-panel');
+    
+    // Update elements
+    document.getElementById('skill-detail-name').textContent = name;
+    document.getElementById('skill-detail-usage').textContent = usage || "Basic understanding and lab testing";
+    document.getElementById('skill-detail-desc').textContent = description;
+    
+    // Animate display
+    panel.style.display = "block";
+    panel.offsetHeight; // force reflow
+    panel.style.opacity = "1";
+    panel.style.transform = "translateY(0)";
+    
+    // Toggle active tag state
+    document.querySelectorAll('.interactive-tag').forEach(tag => {
+        if (tag.textContent.trim() === name) {
+            tag.classList.add('active-skill-tag');
+        } else {
+            tag.classList.remove('active-skill-tag');
+        }
+    });
+
+    // Smooth scroll down to panel
+    setTimeout(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+}
+</script>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Veeranarayana Gorantla. All Systems Nominal.</p>
+            </div>
+            <div class="footer-right">
+                <div class="digital-signature">
+                    <p><i class="fas fa-fingerprint"></i> INTEGRITY CHECK: <span class="hash" id="integrity-hash">be06ccad0ce66d30</span></p>
+                    <p><i class="fas fa-clock"></i> LAST SCAN: <span class="timestamp">2026-07-31 14:27:30 UTC</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('integrity-hash');
+        if (el) {
+            const fetchIP = (url) => {
+                return fetch(url)
+                    .then(res => {
+                        if (!res.ok) throw new Error();
+                        return res.json();
+                    })
+                    .then(data => {
+                        const ip = data.ip || data.ip_addr || data.clientIp || data.query;
+                        if (ip) {
+                            el.textContent = 'IP: ' + ip;
+                            return true;
+                        }
+                        return false;
+                    });
+            };
+
+            fetchIP('https://api.ipify.org?format=json')
+                .catch(() => fetchIP('https://ipapi.co/json/'))
+                .catch(() => fetchIP('https://api.db-ip.com/v2/free/self'))
+                .catch(err => console.warn('Integrity trace bypassed: offline or blocked.', err));
+        }
+    });
+    </script>
+
+    <!-- Project Details Modal (Global) -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Project Protocol</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="modal-project-name">Project Name</h4>
+                <p id="modal-description">Detailed project description will be loaded here...</p>
+                <div class="modal-tech-stack" id="modal-tech-stack">
+                    <!-- Tech tags injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>
