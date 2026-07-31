@@ -1,4 +1,4 @@
-# My Cybersecurity Portfolio
+# My Portfolio
 
 Hi, welcome to my portfolio repository. This is a website I built to showcase my work in cybersecurity and penetration testing. I used Python Flask for the backend because it is secure and easy to work with.
 
